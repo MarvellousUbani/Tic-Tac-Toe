@@ -1,10 +1,9 @@
-module Playable
-    class Player
-        attr_writer :name, :symbol
+	class Player
+        attr_reader :name, :symbol
 
-        def initialize(name, symbol)
+        def initialize
             @name = gets.chomp()
             @symbol = gets.chomp()
         end
     end
-end
+
