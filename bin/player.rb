@@ -41,29 +41,15 @@ class Board
     if x > 2 || y > 2
   	  true
   	end
-
-  def player_win(sym)
-    x = []
-    y = []
-
-    for i in 0...grid.length
-      for j in 0...grid.length
-        if grid[i][j] = sym
-          x.push(i)
-          y.push(j)
-        end
-      end
-    end
-
-    # Diagonal Win
-    if x.sort() == y.sort()
-      print "You Win"
-    end
-
-    if x.all? { |x|  x ==  1 || x == 2 || x == 3 } && y.sort.include?(4) || y.sort.include?(2) || y.sort.include?(3)
   end
 
-end
+  def update_board(sym, x, y)
+  	@grid[x][y] = sym
+  	@grid.each do |item|
+  		return item
+  	end
+  end
+
 
 # func to check if board is not full (if full, drawed game)
 # func to check if a position on the board is empty (if not, then a player played there, prompt to try a different position)
@@ -72,17 +58,18 @@ end
 # After each turn, print array to the console, each on new line
 # Reset function
 
+def reset_game
+	@grid = [
+     ["", "", ""],
+     ["", "", ""],
+     ["", "", ""]]
+end
+
 # winning combinations
 
 def check_win(sym) #sym = "X" or "Y"
   
   # updated_grid (returned result)
-  
-  grid = [
-       ["X", "X", "O"],
-       ["X", "X", "O"],
-       ["O", "", ""]
-  ]
   
     winning_combinations = [
     [grid[0][0], grid[0][1], grid[0][2]], 
@@ -103,6 +90,7 @@ def check_win(sym) #sym = "X" or "Y"
     end
   end
   
-  win?("X")
+
+end
 
   
