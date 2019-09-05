@@ -19,21 +19,40 @@ class Board
   attr_reader :grid
 
   def initialize
-    @grid = Array.new(3) { Array.new(3) { Cell.new(3) } }
+    @grid = [
+     ["", "", ""],
+     ["", "", ""],
+     ["", "", ""]]
   end
 
-  def 
+  def board_not_full
+  	if @grid[0].include?("") || @grid[1].include?("") || @grid[2].include?("")
+  		true
+    else
+    	false
+    end	
+  end
+
+  def position_empty(x, y)
+  	@grid[x][y] == ""
+  end
+
+  def invalid_move(x, y){
+  	if x > 2 || y > 2
+  		true
+  	end
+  }
+
+  def playerWin(X)
+  end
+
 end
 
 # func to check if board is not full (if full, drawed game)
-# func to check if a position on the board is empty (if not, then a player played there)
+# func to check if a position on the board is empty (if not, then a player played there, prompt to try a different position)
 # func to check if invalid move made.
 # func to check if game was won.
+# After each turn, print array to the console, each on new line
 
 
-grid = [
-    [" ", " ", " "],
-    [" ", " ", " "],
-    [" ", " ", " "]
-]
 
