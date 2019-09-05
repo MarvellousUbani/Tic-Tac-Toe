@@ -48,7 +48,6 @@ class Board
   	@grid
   end
 
-
 # func to check if board is not full (if full, drawed game)
 # func to check if a position on the board is empty (if not, then a player played there, prompt to try a different position)
 # func to check if invalid move made.
@@ -60,7 +59,8 @@ def reset_game
 	@grid = [
      ["", "", ""],
      ["", "", ""],
-     ["", "", ""]]
+     ["", "", ""]
+  ]
 end
 
 # winning combinations
