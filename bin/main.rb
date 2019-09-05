@@ -2,13 +2,15 @@ require_relative "player"
 
 puts "Welcome to Tic-Tac-Toe"
 
-puts "Enter your name and symbol: Player 1"
+puts "Enter your name and symbol, player 1:"
+name1 = gets.chomp()
+symbol1 = gets.chomp()
+player1 = Player.new(name1, symbol1)
 
-player1 = Player.new
-
-puts "Enter your name and symbol: Player 2"
-
-player2 = Player.new
+puts "Enter your name and symbol, player 2:"
+name2 = gets.chomp()
+symbol2 = gets.chomp()
+player2 = Player.new(name2, symbol2)
 
 puts "Player One Details"
 puts player1.name
