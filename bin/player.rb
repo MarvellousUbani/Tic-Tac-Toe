@@ -34,7 +34,7 @@ class Board
   end
 
   def position_empty(x, y)
-  	@grid[x][y] == ""
+  	grid[x][y] == ""
   end
 
   def invalid_move(x, y)
@@ -45,9 +45,7 @@ class Board
 
   def update_board(sym, x, y)
   	@grid[x][y] = sym
-  	@grid.each do |item|
-  		return item
-  	end
+  	@grid
   end
 
 
@@ -83,7 +81,7 @@ def check_win(sym) #sym = "X" or "Y"
   ]
   
     winning_combinations.each do |x|
-      if sym == x.uniq
+      if [sym] == x.uniq
       puts "You win!"
       break
       end
