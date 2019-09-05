@@ -37,13 +37,30 @@ class Board
   	@grid[x][y] == ""
   end
 
-  def invalid_move(x, y){
-  	if x > 2 || y > 2
-  		true
+  def invalid_move(x, y)
+    if x > 2 || y > 2
+  	  true
   	end
-  }
 
-  def playerWin(X)
+  def player_win(sym)
+    x = []
+    y = []
+
+    for i in 0...grid.length
+      for j in 0...grid.length
+        if grid[i][j] = sym
+          x.push(i)
+          y.push(j)
+        end
+      end
+    end
+
+    # Diagonal Win
+    if x.sort() == y.sort()
+      print "You Win"
+    end
+
+    if x.all? { |x|  x ==  1 || x == 2 || x == 3 } && y.sort.include?(4) || y.sort.include?(2) || y.sort.include?(3)
   end
 
 end
