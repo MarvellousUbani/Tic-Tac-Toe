@@ -54,40 +54,33 @@ class Board
 # After each turn, print array to the console, each on new line
 # Reset function
 
-def reset_game
-	@grid = [
-     ["", "", ""],
-     ["", "", ""],
-     ["", "", ""]
-  ]
-end
-
-# winning combinations
-
-def check_win(sym) #sym = "X" or "Y"
-  
-  # updated_grid (returned result)
-  
+  def reset_game
+	  @grid = [
+      ["", "", ""],
+      ["", "", ""],
+      ["", "", ""]
+    ]
+  end
+  def check_win(sym)
     winning_combinations = [
-    [grid[0][0], grid[0][1], grid[0][2]], 
-    [grid[1][0], grid[1][1], grid[1][2]],
-    [grid[2][0], grid[2][1], grid[2][2]],
-    [grid[0][0], grid[1][0], grid[2][0]],
-    [grid[0][1], grid[1][1], grid[2][1]],
-    [grid[0][2], grid[1][2], grid[2][2]],
-    [grid[0][0], grid[1][1], grid[2][2]],
-    [grid[0][2], grid[1][1], grid[2][0]]
-  ]
-  
+      [grid[0][0], grid[0][1], grid[0][2]], 
+      [grid[1][0], grid[1][1], grid[1][2]],
+      [grid[2][0], grid[2][1], grid[2][2]],
+      [grid[0][0], grid[1][0], grid[2][0]],
+      [grid[0][1], grid[1][1], grid[2][1]],
+      [grid[0][2], grid[1][2], grid[2][2]],
+      [grid[0][0], grid[1][1], grid[2][2]],
+      [grid[0][2], grid[1][1], grid[2][0]]
+    ]
     winning_combinations.each do |x|
       if [sym] == x.uniq
-      puts "You win!"
-      break
+        true
+        new_board = Board.new
+        break
       end
     end
   end
   
-
 end
 
   
