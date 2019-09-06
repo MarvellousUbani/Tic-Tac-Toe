@@ -40,7 +40,7 @@ class Board
   end
 
   def update_board(sym, x, y)
-  	if x > 2 || y > 2
+  	if x > 2 || y > 2 || grid[x][y] == "X" || grid[x][y] == "O"
       false
   	else
       @grid[x][y] = sym
@@ -71,11 +71,12 @@ class Board
     winning_combinations.each do |x|
       if [sym] == x.uniq
         true
-        puts "Win. Game Restarted"
+        print "#{sym} Wins. Game Restarted\n"
         reset_game()     
         break
       end
     end
+
   end
   
 end
