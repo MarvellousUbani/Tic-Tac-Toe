@@ -1,4 +1,4 @@
-require_relative "startgame"
+
 
 class Player
   attr_reader :name, :symbol
@@ -36,18 +36,16 @@ class Board
   end
 
   def update_board(sym, x, y)
-    $arr = []
   	if x > 2 || y > 2
       false
   	else
       @grid[x][y] = sym
-      $arr.push([x,y])
       @grid
     end  
   end
 
   def position_empty(x, y)
-    return false if $arr.include?([x,y])
+    return true if grid[x][y] == ""
   end
 
   def reset_game
