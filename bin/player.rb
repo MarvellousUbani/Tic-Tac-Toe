@@ -37,15 +37,14 @@ class Board
   	grid[x][y] == ""
   end
 
-  def invalid_move(x, y)
-    if x > 2 || y > 2
-  	  true
-  	end
-  end
 
   def update_board(sym, x, y)
-  	@grid[x][y] = sym
-  	@grid
+  	if x > 2 || y > 2
+      false
+  	else
+  	  @grid[x][y] = sym
+  	  @grid
+    end  
   end
 
 # func to check if board is not full (if full, drawed game)

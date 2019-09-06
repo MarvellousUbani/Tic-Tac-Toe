@@ -15,22 +15,33 @@ player2 = Player.new(name2, symbol2)
 new_board = Board.new()
 
 4.times {
-    puts "Player 1: Where would you like to place #{symbol1}?"
+    puts "#{name1}: Where would you like to place #{symbol1}?"
     x1 = gets.chomp.to_i()
     y1 = gets.chomp.to_i()
     
-    if new_board.position_empty(x1, y1) == false && new_board.invalid_move(x1, y1) == false
-       new_board.update_board(symbol1, x1, y1) 
-    end
+    # && new_board.position_empty(x1, y1) == false
+
+    new_board.update_board(symbol1, x1, y1)
+    new_board.check_win(symbol1) 
     
+    while new_board.update_board(symbol1, x1, y1) == false
+    	puts "Invalid move. Please Re-enter Position #{name1}"
+    	x1 = gets.chomp.to_i()
+        y1 = gets.chomp.to_i()
+        new_board.update_board(symbol1, x1, y1)
+        new_board.check_win(symbol1)
+    end
+
+
     print new_board.update_board(symbol1, x1, y1)
     
-    puts "Player 2: Where would you like to place #{symbol2}?"
+    puts "#{name2}: Where would you like to place #{symbol2}?"
     x2 = gets.chomp.to_i()
     y2 = gets.chomp.to_i()
     
     if new_board.position_empty(x2, y2) == false &&  new_board.invalid_move(x2, y2) == false
         puts new_board.update_board(symbol1, x1, y1) 
+        new_board.check_win(symbol1) 
     end
     
     print new_board.update_board(symbol2, x2, y2)
