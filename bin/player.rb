@@ -35,17 +35,19 @@ class Board
     end	
   end
 
-  def position_empty(x, y)
-    return true if grid[x][y].empty?
-  end
-
   def update_board(sym, x, y)
-  	if x > 2 || y > 2 || grid[x][y] == "X" || grid[x][y] == "O"
+    $arr = []
+  	if x > 2 || y > 2
       false
   	else
       @grid[x][y] = sym
+      $arr.push([x,y])
       @grid
     end  
+  end
+
+  def position_empty(x, y)
+    return false if $arr.include?([x,y])
   end
 
   def reset_game
