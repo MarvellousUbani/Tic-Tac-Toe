@@ -1,3 +1,5 @@
+require_relative "startgame"
+
 class Player
   attr_reader :name, :symbol
 
@@ -60,6 +62,7 @@ class Board
       ["", "", ""],
       ["", "", ""]
     ]
+    run_game()
   end
   def check_win(sym)
     winning_combinations = [
@@ -75,7 +78,8 @@ class Board
     winning_combinations.each do |x|
       if [sym] == x.uniq
         true
-        new_board = Board.new
+        puts "Win. Game Restarted"
+        reset_game()     
         break
       end
     end
