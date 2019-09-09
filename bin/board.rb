@@ -1,5 +1,5 @@
 class Board
-  attr_reader :grid, :arr
+  attr_reader :grid
   
   def initialize
     @grid = [
@@ -22,34 +22,34 @@ class Board
   end
   
   def update_board(sym, num)
-    if num > 9 || @arr.include?(num)
+    if num > 9
       return false
+    else
+      case num
+      when 1
+        grid[0][0] = sym
+      when 2
+        grid[0][1] = sym
+      when 3
+        grid[0][2] = sym
+      when 4
+        grid[1][0] = sym
+      when 5
+        grid[1][1] = sym
+      when 6
+        grid[1][2] = sym
+      when 7
+        grid[2][0] = sym
+      when 8
+        grid[2][1] = sym
+      when 9
+        grid[2][2] = sym
+      end
     end
-
-    case num
-    when 1
-      grid[0][0] = sym
-    when 2
-      grid[0][1] = sym
-    when 3
-      grid[0][2] = sym
-    when 4
-      grid[1][0] = sym
-    when 5
-      grid[1][1] = sym
-    when 6
-      grid[1][2] = sym
-    when 7
-      grid[2][0] = sym
-    when 8
-      grid[2][1] = sym
-    when 9
-      grid[2][2] = sym
-    end
-    @arr.push(num)
-    print @arr
     grid  
   end
+
+  
 
   def current_board
     grid = @grid
