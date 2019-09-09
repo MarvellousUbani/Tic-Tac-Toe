@@ -18,31 +18,29 @@ class Board
   end
   
   def update_board(sym, num)
-    if x > 2 || y > 2
-      false
-    else
-      case num
-      when 1
-        grid[0][0] = sym
-      when 2
-        grid[0][1] = sym
-      when 3
-        grid[0][2] = sym
-      when 4
-        grid[1][0] = sym
-      when 5
-        grid[1][1] = sym
-      when 6
-        grid[1][2] = sym
-      when 7
-        grid[2][0] = sym
-      when 8
-        grid[2][1] = sym
-      when 9
-        grid[2][2] = sym
-      else
-        "Invalid Entry. Please enter a number between 1 and 9"
-      end
+    if num > 9
+      return false
+    end
+
+    case num
+    when 1
+      grid[0][0] = sym
+    when 2
+      grid[0][1] = sym
+    when 3
+      grid[0][2] = sym
+    when 4
+      grid[1][0] = sym
+    when 5
+      grid[1][1] = sym
+    when 6
+      grid[1][2] = sym
+    when 7
+      grid[2][0] = sym
+    when 8
+      grid[2][1] = sym
+    when 9
+      grid[2][2] = sym
     end
     grid  
   end
