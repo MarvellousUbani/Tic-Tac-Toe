@@ -9,12 +9,15 @@ class Board
     ]
   end
   
-  def board_not_full
-    if @grid[0].include?("") || @grid[1].include?("") || @grid[2].include?("")
-      true
-    else
-      false
-    end	
+  def put_x
+    for i in 0..2
+      for j in 0..2
+        if @grid[i][j] == ""
+          @grid[i][j] = "X"
+          return "#{grid[0]}\n#{grid[1]}\n#{grid[2]}\n"
+        end
+      end
+    end
   end
   
   def update_board(sym, num)

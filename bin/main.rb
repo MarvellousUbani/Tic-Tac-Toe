@@ -16,7 +16,7 @@ def run_game
 
   new_board = Board.new()
 
-  5.times {
+  4.times {
     puts "#{name1}: Where would you like to place #{symbol1}?"
     num1 = gets.chomp.to_i()
     new_board.update_board(symbol1, num1)
@@ -25,14 +25,8 @@ def run_game
     while new_board.update_board(symbol1, num1) == false
       puts "Invalid move. Please Re-enter Position #{name1}"
       num1 = gets.chomp.to_i()
-      #new_board.update_board(symbol1, num1)
+      new_board.update_board(symbol1, num1)
       new_board.check_win(symbol1)
-    end
-
-    if new_board.board_not_full() == true
-      next
-    else
-      print "It's a draw"
     end
 
     print new_board.current_board()
@@ -45,18 +39,17 @@ def run_game
     while new_board.update_board(symbol2, num2) == false
       puts "Invalid move. Please Re-enter Position #{name2}"
       num2 = gets.chomp.to_i()
-      #new_board.update_board(symbol2, num2)
+      new_board.update_board(symbol2, num2)
       new_board.check_win(symbol2)
-    end
-
-    if new_board.board_not_full() == true
-      next
-    else
-      print "It's a draw"
     end
 
     print new_board.current_board()
   }
+      
+      print "It's a draw\n"
+      print new_board.put_x()
+
+
 end
 
 run_game()
