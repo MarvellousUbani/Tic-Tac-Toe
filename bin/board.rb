@@ -1,5 +1,5 @@
 class Board
-  attr_reader :grid
+  attr_reader :grid, :arr
   
   def initialize
     @grid = [
@@ -7,6 +7,7 @@ class Board
       ["", "", ""],
       ["", "", ""]
     ]
+    @arr = []
   end
   
   def put_x
@@ -21,7 +22,7 @@ class Board
   end
   
   def update_board(sym, num)
-    if num > 9
+    if num > 9 || @arr.include?(num)
       return false
     end
 
@@ -45,16 +46,14 @@ class Board
     when 9
       grid[2][2] = sym
     end
+    @arr.push(num)
+    print @arr
     grid  
   end
 
   def current_board
     grid = @grid
     return "#{grid[0]}\n#{grid[1]}\n#{grid[2]}\n"
-  end
- 
-  def position_empty(x, y)
-    return true if grid[x][y] == ""
   end
   
   def reset_game
@@ -87,6 +86,4 @@ class Board
     end
   end
 end
-
-#board_not_full not used
 #position_empty not used
