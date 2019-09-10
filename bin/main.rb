@@ -1,46 +1,75 @@
-require_relative "player"
+require './lib/player.rb'
+require './lib/board.rb'
 
 puts "Welcome to Tic-Tac-Toe"
 
-puts "Enter your name and symbol, player 1:"
-name1 = gets.chomp()
-symbol1 = gets.chomp()
-player1 = Player.new(name1, symbol1)
-
-puts "Enter your name and symbol, player 2:"
-name2 = gets.chomp()
-symbol2 = gets.chomp()
-player2 = Player.new(name2, symbol2)
-
-puts "Player One Details"
-puts player1.name
-puts player1.symbol
-
-puts "Player Two Details"
-puts player2.name
-puts player2.symbol
-
-new_board = Board.new()
-puts new_board.grid
-
-puts "Player 1, Your Turn: Enter a Position"
-x_axis = gets.chomp()
-y_axis = gets.chomp()
-puts new_board.new_grid
-
-puts "Player 2, Your Turn: Enter a Position"
-x_axis = gets.chomp()
-y_axis = gets.chomp()
-puts new_board.new_grid
-
-# Repeat a minimum of 5 times
-new_board.checkWin(sym1, sym2)
-# Checkwin function will be print if there is a win or if its a draw
+def run_game
+  puts "Enter your name, player 1:"
+  name1 = gets.chomp()
+  symbol1 = "X"
+  player1 = Player.new(name1, symbol1)
 
 
+  puts "Enter your name, player 2:"
+  name2 = gets.chomp()
+  symbol2 = "O"
+  player2 = Player.new(name2, symbol2)
 
+  new_board = Board.new()
 
+  4.times {
+    puts "#{player1.name}: Where would you like to place #{player1.symbol}?"
+    num1 = gets.chomp.to_i()
+    new_board.update_board(symbol1, num1)
+    if new_board.check_win(symbol1) == true
+      puts "#{player1.name} Wins"
+      run_game()
+    end
+    new_board.check_win(symbol1)
 
+    
+    while new_board.update_board(symbol1, num1) == false
+      puts "Invalid move. Please Re-enter Position #{name1}"
+      num1 = gets.chomp.to_i()
+      new_board.update_board(symbol1, num1)
+      if new_board.check_win(symbol1) == true
+        puts "#{player1.name} Wins"
+        run_game()
+      end
+      new_board.check_win(symbol1)
+    end
+
+    print new_board.current_board()
+    
+    puts "#{player2.name}: Where would you like to place #{player2.symbol}?"
+    num2 = gets.chomp.to_i()
+    new_board.update_board(symbol2, num2)
+    new_board.check_win(symbol2)
+    if new_board.check_win(symbol2) == true
+      puts "#{player2.name} Wins"
+      run_game()
+    end
+    new_board.check_win(symbol2)
+    
+    while new_board.update_board(symbol2, num2) == false
+      puts "Invalid move. Please Re-enter Position #{name2}"
+      num2 = gets.chomp.to_i()
+      new_board.update_board(symbol2, num2)
+      if new_board.check_win(symbol2) == true
+        puts "#{player2.name} Wins"
+        run_game()
+      end
+      new_board.check_win(symbol2)
+    end
+
+    print new_board.current_board()
+  }
+  print "It's a draw\n"
+  print new_board.put_x()
+  run_game()
+end
+
+run_game()
 
 
 
