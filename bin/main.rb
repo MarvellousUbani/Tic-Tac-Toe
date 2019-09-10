@@ -1,5 +1,5 @@
-require_relative "player"
-require_relative "board"
+require './lib/player.rb'
+require './lib/board.rb'
 
 puts "Welcome to Tic-Tac-Toe"
 
