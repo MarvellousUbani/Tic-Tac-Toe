@@ -51,14 +51,6 @@ class Board
     "#{grid[0]}\n#{grid[1]}\n#{grid[2]}\n"
   end
 
-  def reset_game
-    @grid = [
-      ['', '', ''],
-      ['', '', ''],
-      ['', '', '']
-    ]
-    run_game
-  end
 
   def check_win(sym)
     winning_combinations = [
@@ -73,7 +65,7 @@ class Board
     ]
     winning_combinations.each do |x|
       if x.uniq == [sym]
-        reset_game
+        return true
         break
       end
     end

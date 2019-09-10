@@ -21,12 +21,21 @@ def run_game
     puts "#{player1.name}: Where would you like to place #{player1.symbol}?"
     num1 = gets.chomp.to_i()
     new_board.update_board(symbol1, num1)
+    if new_board.check_win(symbol1) == true
+      puts "#{player1.name} Wins"
+      run_game()
+    end
     new_board.check_win(symbol1)
+
     
     while new_board.update_board(symbol1, num1) == false
       puts "Invalid move. Please Re-enter Position #{name1}"
       num1 = gets.chomp.to_i()
       new_board.update_board(symbol1, num1)
+      if new_board.check_win(symbol1) == true
+        puts "#{player1.name} Wins"
+        run_game()
+      end
       new_board.check_win(symbol1)
     end
 
@@ -36,11 +45,20 @@ def run_game
     num2 = gets.chomp.to_i()
     new_board.update_board(symbol2, num2)
     new_board.check_win(symbol2)
+    if new_board.check_win(symbol2) == true
+      puts "#{player2.name} Wins"
+      run_game()
+    end
+    new_board.check_win(symbol2)
     
     while new_board.update_board(symbol2, num2) == false
       puts "Invalid move. Please Re-enter Position #{name2}"
       num2 = gets.chomp.to_i()
       new_board.update_board(symbol2, num2)
+      if new_board.check_win(symbol2) == true
+        puts "#{player2.name} Wins"
+        run_game()
+      end
       new_board.check_win(symbol2)
     end
 
@@ -48,6 +66,7 @@ def run_game
   }
   print "It's a draw\n"
   print new_board.put_x()
+  run_game()
 end
 
 run_game()
