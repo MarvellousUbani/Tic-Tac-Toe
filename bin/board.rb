@@ -7,7 +7,6 @@ class Board
       ["", "", ""],
       ["", "", ""]
     ]
-    @arr = []
   end
   
   def put_x
@@ -79,11 +78,9 @@ class Board
     winning_combinations.each do |x|
       if [sym] == x.uniq
         true
-        "#{sym} Wins. Game Restarted\n"
         reset_game()     
         break
       end
     end
   end
 end
-#position_empty not used
