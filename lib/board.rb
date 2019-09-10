@@ -71,8 +71,8 @@ class Board
       [grid[0][2], grid[1][1], grid[2][0]]
     ]
     winning_combinations.each do |x|
-      if [sym] == x.uniq
-        reset_game()     
+      if x.uniq == [sym]
+        reset_game
         break
       end
     end
