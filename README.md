@@ -24,8 +24,8 @@ This is the third project of the Main Ruby curriculum at Microverse - @microvers
 
 #### Authors 
 
-(@MarvellousUbani)[https://github.com/MarvellousUbani/] 
-(@KerronKing)[https://github.com/KerronKing/]
+[@MarvellousUbani](https://github.com/MarvellousUbani/)
+[@KerronKing](https://github.com/KerronKing/)
 
 #### Technologies
 
