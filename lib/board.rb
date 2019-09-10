@@ -24,27 +24,24 @@ class Board
 
   def update_board(sym, num)
     return false if num > 9
-    case num
-    when 1
-      grid[0][0] = sym
-    when 2
-      grid[0][1] = sym
-    when 3
-      grid[0][2] = sym
-    when 4
-      grid[1][0] = sym
-    when 5
-      grid[1][1] = sym
-    when 6
-      grid[1][2] = sym
-    when 7
-      grid[2][0] = sym
-    when 8
-      grid[2][1] = sym
-    when 9
-      grid[2][2] = sym
+    obj = {
+      1 => [0, 0],
+      2 => [0, 1],
+      3 => [0, 2],
+      4 => [1, 0],
+      5 => [1, 1],
+      6 => [1, 2],
+      7 => [2, 0],
+      8 => [2, 1],
+      9 => [2, 2]
+    }
+    obj.each do |key, value|
+      if num == key
+        first = value[0]
+        second = value[1]
+        grid[first][second] = sym
+      end
     end
-
     grid
   end
 
