@@ -51,7 +51,6 @@ class Board
     "#{grid[0]}\n#{grid[1]}\n#{grid[2]}\n"
   end
 
-
   def check_win(sym)
     winning_combinations = [
       [grid[0][0], grid[0][1], grid[0][2]],
