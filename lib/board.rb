@@ -64,7 +64,6 @@ class Board
     ]
     winning_combinations.each do |x|
       return true if x.uniq == [sym]
-        
     end
   end
 end
