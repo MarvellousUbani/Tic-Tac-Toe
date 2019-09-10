@@ -22,4 +22,11 @@ This is the third project of the Main Ruby curriculum at Microverse - @microvers
 
 6) When all 9 positions are full, the game is over. If no player has 3 marks in a row, the game ends in a draw.
 
-Authors @MarvellousUbani @KerronKing
+#### Authors 
+
+(@MarvellousUbani)[https://github.com/MarvellousUbani/] 
+(@KerronKing)[https://github.com/KerronKing/]
+
+#### Technologies
+
+The project was completed using ruby
