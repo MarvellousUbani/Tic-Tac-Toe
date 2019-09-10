@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Player
   attr_reader :name, :symbol
 
@@ -6,7 +8,3 @@ class Player
     @symbol = symbol
   end
 end
-
-
-
-  

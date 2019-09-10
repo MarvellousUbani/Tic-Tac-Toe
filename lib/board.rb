@@ -1,25 +1,27 @@
+# frozen_string_literal: true
+
 class Board
   attr_reader :grid
-  
+
   def initialize
     @grid = [
-      ["", "", ""],
-      ["", "", ""],
-      ["", "", ""]
+      ['', '', ''],
+      ['', '', ''],
+      ['', '', '']
     ]
   end
-  
+
   def put_x
-    for i in 0..2
-      for j in 0..2
-        if @grid[i][j] == ""
-          @grid[i][j] = "X"
+    (0..2).each do |i|
+      (0..2).each do |j|
+        if @grid[i][j] == ''
+          @grid[i][j] = 'X'
           return "#{grid[0]}\n#{grid[1]}\n#{grid[2]}\n"
         end
       end
     end
   end
-  
+
   def update_board(sym, num)
     return false if num > 9
     case num
@@ -42,28 +44,27 @@ class Board
     when 9
       grid[2][2] = sym
     end
-    grid  
-  end
 
-  
+    grid
+  end
 
   def current_board
     grid = @grid
-    return "#{grid[0]}\n#{grid[1]}\n#{grid[2]}\n"
+    "#{grid[0]}\n#{grid[1]}\n#{grid[2]}\n"
   end
-  
+
   def reset_game
     @grid = [
-      ["", "", ""],
-      ["", "", ""],
-      ["", "", ""]
+      ['', '', ''],
+      ['', '', ''],
+      ['', '', '']
     ]
-    run_game()
+    run_game
   end
-  
+
   def check_win(sym)
     winning_combinations = [
-      [grid[0][0], grid[0][1], grid[0][2]], 
+      [grid[0][0], grid[0][1], grid[0][2]],
       [grid[1][0], grid[1][1], grid[1][2]],
       [grid[2][0], grid[2][1], grid[2][2]],
       [grid[0][0], grid[1][0], grid[2][0]],
