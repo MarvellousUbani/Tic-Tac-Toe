@@ -24,6 +24,7 @@ class Board
 
   def update_board(sym, num)
     return false if num > 9
+
     obj = {
       1 => [0, 0],
       2 => [0, 1],
@@ -36,11 +37,11 @@ class Board
       9 => [2, 2]
     }
     obj.each do |key, value|
-      if num == key
-        first = value[0]
-        second = value[1]
-        grid[first][second] = sym
-      end
+      next unless num == key
+
+      first = value[0]
+      second = value[1]
+      grid[first][second] = sym
     end
     grid
   end
