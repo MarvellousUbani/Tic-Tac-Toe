@@ -25,4 +25,28 @@ RSpec.describe Board do
       expect(board.update_board("O", 9)).to eql(result)
     end
   end
+
+
+  describe "#check_win" do
+    it "returns true if given symbol appears three times on the horizontal axis" do
+      board.grid[0] = ["X","X","X"]
+      expect(board.check_win("X")).to eql(true)
+    end
+
+    it "returns true if given symbol appears three times on the vertical axis" do
+      board.grid[0] = ["X","",""]
+      board.grid[1] = ["X","",""]
+      board.grid[2] = ["X","",""]
+      expect(board.check_win("X")).to eql(true)
+    end
+
+    it "returns true if given symbol appears three times diagonally" do
+      board.grid[0] = ["","","X"]
+      board.grid[1] = ["","X",""]
+      board.grid[2] = ["X","",""]
+      expect(board.check_win("X")).to eql(true)
+    end
+
+  end
+
 end
