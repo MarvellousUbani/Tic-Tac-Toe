@@ -1,4 +1,3 @@
-require './lib/player'
 require './lib/board'
 
 RSpec.describe Board do
@@ -26,27 +25,39 @@ RSpec.describe Board do
     end
   end
 
-
   describe "#check_win" do
     it "returns true if given symbol appears three times on the horizontal axis" do
       board.grid[0] = ["X","X","X"]
       expect(board.check_win("X")).to eql(true)
     end
-
     it "returns true if given symbol appears three times on the vertical axis" do
       board.grid[0] = ["X","",""]
       board.grid[1] = ["X","",""]
       board.grid[2] = ["X","",""]
       expect(board.check_win("X")).to eql(true)
     end
-
     it "returns true if given symbol appears three times diagonally" do
       board.grid[0] = ["","","X"]
       board.grid[1] = ["","X",""]
       board.grid[2] = ["X","",""]
       expect(board.check_win("X")).to eql(true)
     end
-
   end
 
+  describe "#current_board" do
+    it "prints the game board to the console when invoked" do
+      result = "[\"\", \"\", \"\"]\n[\"\", \"\", \"\"]\n[\"\", \"\", \"\"]\n"
+      expect(board.current_board()).to eql(result)
+    end
+  end
+
+  describe "#put_x" do
+    it "prints an \"X\" in the remaining empty position" do
+      board.grid[0] = ["X", "O", "O"]
+      board.grid[1] = ["O", "X", ""]
+      board.grid[2] = ["X", "X", "O"]
+      result = "[\"X\", \"O\", \"O\"]\n[\"O\", \"X\", \"X\"]\n[\"X\", \"X\", \"O\"]\n"
+      expect(board.put_x()).to eql(result)
+    end
+  end
 end
