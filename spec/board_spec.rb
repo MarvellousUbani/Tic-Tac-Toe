@@ -42,6 +42,12 @@ RSpec.describe Board do
       board.grid[2] = ["X","",""]
       expect(board.check_win("X")).to eql(true)
     end
+    it "returns false if board is full and no win is possible (drawn game)" do
+      board.grid[0] = ["X", "O", "O"]
+      board.grid[1] = ["O", "X", "X"]
+      board.grid[2] = ["X", "X", "O"]
+      expect(board.check_win("X")).to eql(false)
+    end
   end
 
   describe "#current_board" do
