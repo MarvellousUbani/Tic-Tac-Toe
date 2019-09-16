@@ -48,7 +48,7 @@ RSpec.describe Board do
       board.grid[0] = %w[X O O]
       board.grid[1] = %w[O X X]
       board.grid[2] = %w[X X O]
-      expect(board.check_win('X')).to eql(false)
+      expect(board.check_win('X')).not_to eq(true)
     end
   end
 
