@@ -1,3 +1,4 @@
+<pre>
 # Tic-Tac-Toe
 
 This is the third project of the Main Ruby curriculum at Microverse - @microverseinc
@@ -10,9 +11,11 @@ This is the third project of the Main Ruby curriculum at Microverse - @microvers
 
 3) The game is played on a grid that's 3 squares by 3 squares. Each position is represented by an individual number ranging from 1 through 9 as follows:
 
-|    1    |    2    |    3    |
-|    4    |    5    |    6    |
-|    7    |    8    |    9    |
+<p align="center">
+|        1       |        2       |        3       |<br>
+|        4       |        5       |        6       |<br>
+|        7       |        8       |        9       |
+</p>
 
 4) Each player will take turns making a move on the board. After each move, the board will be displayed with
   the updated player position. If a value greater than "9" is entered when prompted, the player will be notified
@@ -32,3 +35,4 @@ This is the third project of the Main Ruby curriculum at Microverse - @microvers
 #### Technologies
 
 The project was completed using ruby
+</pre>
